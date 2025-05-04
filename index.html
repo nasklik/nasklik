@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My 360 Story</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.0.0/dist/photo-sphere-viewer.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.0.0/dist/photo-sphere-viewer.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to My 360 Story</h1>
+    <p>Explore immersive LGBTQ+ narratives and drone photography</p>
+  </header>
+
+  <!-- 360° Image Viewer -->
+  <section id="viewer-container">
+    <h2>360° Panorama</h2>
+    <div id="viewer" style="width: 100%; height: 500px;"></div>
+  </section>
+
+  <!-- YouTube Videos -->
+  <section>
+    <h2>Watch My Videos</h2>
+    <div class="video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/9pH2S_T1_rQ?si=nG8q7pqO_1f8zWzY&amp;controls=0" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/lcrypONHVhY?si=qtz7YI5acq5U1Etm&amp;controls=0" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/080SKBplJfU?si=ttddDoqAXYH6mann&amp;controls=0" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- About Me -->
+  <section>
+    <h2>About Me</h2>
+    <p>I'm Ensar Tahić, a passionate creator focused on LGBTQ+ issues. I work with 360° technology and aerial drone photography to share powerful stories. You can contact me at <a href="mailto:ensartahic@gmail.com">ensartahic@gmail.com</a>.</p>
+  </section>
+
+  <!-- Drone Photography -->
+  <section>
+    <h2>Drone Photography</h2>
+    <p>Check out some of my drone shots:</p>
+    <div class="drone-gallery">
+      <img src="images/drone1.jpg" alt="Drone Photo 1" />
+      <img src="images/drone2.jpg" alt="Drone Photo 2" />
+      <img src="images/drone3.jpg" alt="Drone Photo 3" />
+    </div>
+  </section>
+
+  <!-- Cool Effect -->
+  <footer>
+    <p>&copy; 2025 Ensar Tahić | All rights reserved.</p>
+  </footer>
+
+  <script>
+    const viewer = new PhotoSphereViewer({
+      panorama: 'https://github.com/username/moja-360-stranica/raw/main/images/360slikadrona.jpg',
+      container: document.querySelector('#viewer'),
+    });
+  </script>
+</body>
+</html>
