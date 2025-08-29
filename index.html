@@ -3,10 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My 360 Story</title>
+  <meta name="description" content="Ensar Tahić - LGBTQ+ storyteller specializing in 360° technology and aerial drone photography. Explore immersive narratives and stunning aerial perspectives.">
+  <meta name="keywords" content="LGBTQ+, 360 photography, drone photography, aerial photography, storytelling, Ensar Tahić">
+  <meta name="author" content="Ensar Tahić">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="My 360 Story - Ensar Tahić">
+  <meta property="og:description" content="Explore immersive LGBTQ+ narratives and drone photography">
+  <meta property="og:image" content="https://raw.githubusercontent.com/nasklik/nasklik/main/images/DJI_20240518155258_0007_D_11zon.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="My 360 Story - Ensar Tahić">
+  <meta property="twitter:description" content="Explore immersive LGBTQ+ narratives and drone photography">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📸</text></svg>">
+  
+  <title>My 360 Story - Ensar Tahić | LGBTQ+ Storytelling & Drone Photography</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.0.0/dist/photo-sphere-viewer.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.0.0/dist/photo-sphere-viewer.css">
+  <!-- Using alternative CDN for PhotoSphere Viewer -->
+  <script src="https://unpkg.com/photo-sphere-viewer@4.8.1/dist/photo-sphere-viewer.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/photo-sphere-viewer@4.8.1/dist/photo-sphere-viewer.min.css">
 </head>
 <body>
   <header>
@@ -23,14 +43,28 @@
   <!-- YouTube Videos -->
   <section>
     <h2>Watch My Videos</h2>
-    <div class="video">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/9pH2S_T1_rQ?si=nG8q7pqO_1f8zWzY&amp;controls=0" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="video">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/lcrypONHVhY?si=qtz7YI5acq5U1Etm&amp;controls=0" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="video">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/080SKBplJfU?si=ttddDoqAXYH6mann&amp;controls=0" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    <div class="video-container">
+      <div class="video">
+        <div class="video-placeholder" onclick="loadVideo(this, '9pH2S_T1_rQ')">
+          <div class="video-play-button">▶</div>
+          <div class="video-title">Creative Journey - Part 1</div>
+          <div class="video-subtitle">Click to play video</div>
+        </div>
+      </div>
+      <div class="video">
+        <div class="video-placeholder" onclick="loadVideo(this, 'lcrypONHVhY')">
+          <div class="video-play-button">▶</div>
+          <div class="video-title">LGBTQ+ Stories</div>
+          <div class="video-subtitle">Click to play video</div>
+        </div>
+      </div>
+      <div class="video">
+        <div class="video-placeholder" onclick="loadVideo(this, '080SKBplJfU')">
+          <div class="video-play-button">▶</div>
+          <div class="video-title">Drone Photography</div>
+          <div class="video-subtitle">Click to play video</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -45,9 +79,24 @@
     <h2>Drone Photography</h2>
     <p>Check out some of my drone shots:</p>
     <div class="drone-gallery">
-      <img src="images/drone1.jpg" alt="Drone Photo 1" />
-      <img src="images/drone2.jpg" alt="Drone Photo 2" />
-      <img src="images/drone3.jpg" alt="Drone Photo 3" />
+      <div class="drone-placeholder">
+        <div class="placeholder-content">
+          <h3>Aerial Shot 1</h3>
+          <p>Beautiful landscape from above</p>
+        </div>
+      </div>
+      <div class="drone-placeholder">
+        <div class="placeholder-content">
+          <h3>Aerial Shot 2</h3>
+          <p>Urban perspectives</p>
+        </div>
+      </div>
+      <div class="drone-placeholder">
+        <div class="placeholder-content">
+          <h3>Aerial Shot 3</h3>
+          <p>Nature from the sky</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -57,9 +106,70 @@
   </footer>
 
   <script>
-    const viewer = new PhotoSphereViewer({
-      panorama: 'https://raw.githubusercontent.com/nasklik/nasklik/main/images/DJI_20240518155258_0007_D_11zon.jpg',
-      container: document.querySelector('#viewer'),
+    // Video loading function
+    function loadVideo(element, videoId) {
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      iframe.frameBorder = '0';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.position = 'absolute';
+      iframe.style.top = '0';
+      iframe.style.left = '0';
+      iframe.style.borderRadius = '12px';
+      
+      element.parentElement.appendChild(iframe);
+      element.style.display = 'none';
+    }
+
+    // Initialize PhotoSphere Viewer after page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      const viewerContainer = document.querySelector('#viewer');
+      
+      // Add loading state
+      viewerContainer.innerHTML = '<div style="display: flex; justify-content: center; align-items: center; height: 100%; color: #666; font-size: 1.1rem;"><div class="loading"></div><span style="margin-left: 10px;">Loading 360° panorama...</span></div>';
+      
+      try {
+        // Check if PhotoSphereViewer is available
+        if (typeof PhotoSphereViewer !== 'undefined') {
+          const viewer = new PhotoSphereViewer({
+            panorama: 'https://raw.githubusercontent.com/nasklik/nasklik/main/images/DJI_20240518155258_0007_D_11zon.jpg',
+            container: viewerContainer,
+            navbar: [
+              'autorotate',
+              'zoom',
+              'fullscreen'
+            ],
+            loadingImg: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMTgiIHN0cm9rZT0iIzMzMyIgc3Ryb2tlLXdpZHRoPSI0Ii8+CjxwYXRoIGQ9Ik0yMCAyVjIwSDM4IiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHZhbHVlcz0iMCAyMCAyMDszNjAgMjAgMjAiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIi8+CjwvcGF0aD4KPC9zdmc+'
+          });
+          
+          viewer.on('ready', function() {
+            console.log('360° panorama loaded successfully');
+          });
+          
+        } else {
+          throw new Error('PhotoSphereViewer library not available');
+        }
+        
+      } catch (error) {
+        console.error('Error initializing PhotoSphere Viewer:', error);
+        
+        // Fallback: Show the image directly
+        viewerContainer.innerHTML = `
+          <div style="position: relative; width: 100%; height: 100%; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 12px; overflow: hidden;">
+            <img src="https://raw.githubusercontent.com/nasklik/nasklik/main/images/DJI_20240518155258_0007_D_11zon.jpg" 
+                 alt="360° Panoramic View" 
+                 style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;"
+                 onclick="window.open(this.src, '_blank')"
+                 title="Click to view full image">
+            <div style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); color: white; padding: 8px 12px; border-radius: 6px; font-size: 0.9rem;">
+              📸 Click to view full panorama
+            </div>
+          </div>
+        `;
+      }
     });
   </script>
 </body>
